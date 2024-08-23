@@ -15,6 +15,12 @@ document
 
 //   -------------------Colors Option
 
+
+// Handle active function
+function hundleActive(el) {
+  el.target.parentElement.querySelector(".active").classList.remove("active");
+  el.target.classList.add("active");
+}
 let lis = document.querySelectorAll(
   ".settings-box .settings-container .option-box:nth-child(1) li"
 );
@@ -22,8 +28,9 @@ let lis = document.querySelectorAll(
 lis.forEach((el) => {
   el.addEventListener("click", function (el) {
     // lis.forEach((el) => el.classList.remove("active"));
-    el.target.parentElement.querySelector(".active").classList.remove("active");
-    el.target.classList.add("active");
+    // el.target.parentElement.querySelector(".active").classList.remove("active");
+    // el.target.classList.add("active");
+    hundleActive(el);
     let currentColor = el.target.dataset.color;
     document.documentElement.style.setProperty("--main-color", currentColor);
     // Add currentColor to local storage
@@ -44,31 +51,30 @@ if (localStorage.getItem("color")) {
   });
 }
 // -----------------------Random background option
-let btns = document.querySelectorAll(".option-box:nth-child(2) button");
+let btnsRandom = document.querySelectorAll(".random-backgrounds button");
+let backgroud = document.querySelector(".landing-page .background");
 let bgOption = true;
 // Variable to stop setInterval
 let bgClear;
-let backgroud = document.querySelector(".landing-page .background");
 if (localStorage.getItem("random")) {
-  let desicion = localStorage.getItem("random");
-  if (desicion === "no") {
+  let randomLocal = localStorage.getItem("random");
+  if (randomLocal === "no") {
     bgOption = false;
     // set saved background color in local storage to background element
     backgroud.style.backgroundImage = `${localStorage.getItem("background")}`;
   }
-  btns.forEach((el) => {
+  btnsRandom.forEach((el) => {
     el.classList.remove("active");
-    if (el.dataset.background === desicion) {
+    if (el.dataset.background === randomLocal) {
       el.classList.add("active");
     }
   });
 }
 
-btns.forEach((el) => {
+btnsRandom.forEach((el) => {
   el.onclick = (btn) => {
     // Toggle active class in buttons
-    btns.forEach((el) => el.classList.remove("active"));
-    btn.target.classList.add("active");
+    hundleActive(btn);
     if (btn.target.dataset.background === "yes") {
       bgOption = true;
       randomizeImages();
@@ -79,7 +85,6 @@ btns.forEach((el) => {
         localStorage.removeItem("background");
       }
     } else {
-      // bgOption = false;
       clearInterval(bgClear);
       localStorage.setItem("random", "no");
       // Save current background in local storage
@@ -87,6 +92,7 @@ btns.forEach((el) => {
         "background",
         backgroud.style.getPropertyValue("background-image")
       );
+      console.log(backgroud.style.getPropertyValue("background-image"));
     }
   };
 });
@@ -131,7 +137,7 @@ window.onscroll = function () {
   // console.log(windowScrollY);
   // console.log(`la some : ${windowScrollY + windowInnerHeight}`);
   let spans = document.querySelectorAll(".skills .skill span");
-  if (windowScrollY > skillsOffsetTop) {
+  if (windowScrollY + 1 >= skillsOffsetTop) {
     spans.forEach((span) => {
       span.style.width = span.dataset.progress;
     });
@@ -185,3 +191,69 @@ document.addEventListener("click", function (e) {
     document.querySelector(".popup-overlay").remove();
   }
 })
+
+let bullets = document.querySelectorAll(".bullets .bullet");
+let scrollSmothly = function (elements) {
+  elements.forEach(el => {
+    el.addEventListener("click", function (e) {
+      document.querySelector(`.${e.target.dataset.section}`).scrollIntoView({
+        behavior: "smooth",
+      })
+    })
+  });
+}
+
+scrollSmothly(bullets);
+
+// handle show and hide bullets
+
+
+let bulletsContainer = document.querySelector(".bullets");
+let btnsBullets = document.querySelectorAll(".show-bullets button");
+if (localStorage.getItem("bullets")) {
+  let bulletsLocal = localStorage.getItem("bullets");
+  btnsBullets.forEach(bullet => {
+    bullet.classList.remove("active");
+  })
+  if (bulletsLocal === "none") {
+    bulletsContainer.style.setProperty("display", "none");
+    document.querySelector(".show-bullets .no").classList.add("active");
+  } else {
+    document.querySelector(".show-bullets .yes").classList.add("active");
+  }
+}
+btnsBullets.forEach(bullet => {
+  bullet.addEventListener("click", function (e) {
+    // toggle active class
+    hundleActive(e);
+    if (e.target.dataset.display === "show") {
+      bulletsContainer.style.setProperty("display", "block");
+      localStorage.setItem("bullets", "block");
+    } else {
+      bulletsContainer.style.setProperty("display", "none");
+      localStorage.setItem("bullets", "none");
+    }
+  })
+});
+
+
+// Reset Options
+
+let resetOptions = document.querySelector(".settings-box .settings-container .reset-options");
+resetOptions.addEventListener("click", function () {
+  localStorage.clear();
+  window.location.reload();
+})
+
+// =========== Show Menu ===========
+
+const showMenu = (toggleClass, menuClass) => {
+  const toggle = document.querySelector(`.${toggleClass}`);
+  menu = document.querySelector(`.${menuClass}`);
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle('show-menu');
+    toggle.classList.toggle("show-icon");
+  })
+}
+
+showMenu("nav-toggle", "nav-menu");

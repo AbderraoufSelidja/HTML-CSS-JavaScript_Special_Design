@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/master.css" />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -25,11 +29,11 @@
         <div class="option-box">
           <h4>Color</h4>
           <ul class="colors-box">
-            <li class="active" data-color="#f44336"></li>
+            <li data-color="#f44336"></li>
             <li data-color="#e91e63"></li>
             <li data-color="#9c27b0"></li>
             <li data-color="#673ab7"></li>
-            <li data-color="#3f51b5"></li>
+            <li class="active" data-color="#3f51b5"></li>
             <li data-color="#2196f3"></li>
             <li data-color="#00bcd4"></li>
             <li data-color="#009688"></li>
@@ -43,35 +47,83 @@
           </ul>
         </div>
         <div class="option-box">
-          <h4>Random backgrounds</h4>
-          <button class="yes active" data-background="yes">Yes</button>
-          <button class="no" data-background="no">No</button>
+          <div class="random-backgrounds">
+            <h4>Random Backgrounds</h4>
+            <button class="yes active" data-background="yes">Yes</button>
+            <button class="no" data-background="no">No</button>
+          </div>
         </div>
+        <div class="option-box">
+          <div class="show-bullets">
+            <h4>Show Bullets</h4>
+            <button class="yes active" data-display="show">Yes</button>
+            <button class="no" data-display="hide">No</button>
+          </div>
+        </div>
+        <button class="reset-options">Reset Options</button>
+      </div>
+    </div>
+    <div class="bullets">
+      <div data-section="about-us" class="bullet">
+        <div class="tooltip">About Us</div>
+      </div>
+      <div data-section="skills" class="bullet">
+        <div class="tooltip">Our Skills</div>
+      </div>
+      <div data-section="gallery" class="bullet">
+        <div class="tooltip">Our Gallery</div>
+      </div>
+      <div data-section="timeline" class="bullet">
+        <div class="tooltip">Our Timeline</div>
+      </div>
+      <div data-section="features" class="bullet">
+        <div class="tooltip">Our Features</div>
+      </div>
+      <div data-section="contact" class="bullet">
+        <div class="tooltip">Contact Us</div>
       </div>
     </div>
     <div class="content">
-      <div id="home" class="landing-page">
-        <div class="background"></div>
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="header-area">
-            <div class="logo">Special <span>Design</span></div>
-            <ul class="nav">
+      <div class="header">
+        <div class="container nav">
+          <div class="nav-data">
+            <a href="#" class="logo"
+              ><i class="ri-planet-line nav-logo"></i>Special
+              <span>Design</span>
+            </a>
+            <div class="nav-toggle">
+              <i class="fa-solid fa-bars toggle-menu"></i>
+              <i class="fa-solid fa-xmark nav-close"></i>
+            </div>
+          </div>
+          <!-- ============== Nav Menu ============== -->
+          <div class="nav-menu">
+            <ul class="nav-list">
               <li>
-                <a class="active" href="#">Home</a>
+                <a class="nav-link" href="#">Home</a>
               </li>
               <li>
-                <a href="#about">About</a>
+                <a class="nav-link" href="#about">About</a>
               </li>
               <li>
-                <a href="#skills">Skills</a>
+                <a class="nav-link" href="#skills">Skills</a>
               </li>
               <li>
-                <a href="#gallery">Gallery</a>
+                <a class="nav-link" href="#gallery">Gallery</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#timeline">Timeline</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#contact">Contact</a>
               </li>
             </ul>
           </div>
         </div>
+      </div>
+      <div id="home" class="landing-page">
+        <div class="background"></div>
+        <div class="overlay"></div>
         <div class="intro">
           <h1>We Are <span>Creative </span>Agency</h1>
           <p>
@@ -87,7 +139,7 @@
             <h2>About Us</h2>
             <p>
               We are a passionate team of designers, developers, and creative
-              thinkers who live to bring bold ideas to life. Founded in 2015,
+              thinkers who live to bring bold ideas to life. Founded in 2021,
               our agency has grown to become a leading provider of integrated
               marketing solutions for clients across a wide range of industries.
             </p>
@@ -191,6 +243,201 @@
             </div>
           </div>
         </div>
+      </div>
+      <div id="timeline" class="timeline">
+        <div class="container">
+          <h2 class="title">Our timeline</h2>
+          <div class="timeline-container">
+            <div class="year">2021</div>
+            <div class="left">
+              <div class="content">
+                <h3>Establishing Our Agency</h3>
+                <p>
+                  Established our creative agency with a focus on crafting
+                  innovative mobile app solutions. Assembled a talented team of
+                  app designers, developers, and strategists, all dedicated to
+                  bringing bold ideas to life.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="year">2022</div>
+            <div class="left">
+              <div class="content">
+                <h3>Delivering Our First App</h3>
+                <p>
+                  Created our first custom-built mobile app for a leading
+                  fintech client. This project showcased our ability to
+                  translate complex requirements into intuitive user
+                  experiences.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="right">
+              <div class="content">
+                <h3>Delivering Our First App</h3>
+                <p>
+                  Created our first custom-built mobile app for a leading
+                  fintech client. This project showcased our ability to
+                  translate complex requirements into intuitive user
+                  experiences.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="year">2023</div>
+            <div class="left">
+              <div class="content">
+                <h3>Earning Industry Recognition</h3>
+                <p>
+                  Received our first award for "Best Mobile App Design" at a
+                  regional technology conference. This recognition solidified
+                  our reputation as a go-to agency for transformative app
+                  development.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="right">
+              <div class="content">
+                <h3>Forging Strategic Partnerships</h3>
+                <p>
+                  Description: Formed strategic partnerships with leading
+                  platform providers. This allowed us to expand our tech stack
+                  and the solutions we could offer our diverse client base.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="left">
+              <div class="content">
+                <h3>Adapting to Remote Work</h3>
+                <p>
+                  Swiftly transitioned to remote work without disrupting
+                  productivity or client satisfaction. Our robust digital
+                  workflows enabled us to maintain our high standards of
+                  service.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="year">2024</div>
+            <div class="left">
+              <div class="content">
+                <h3>Expanding Our Team</h3>
+                <p>
+                  Expanded our team of app development experts to meet the
+                  growing demand for our services. Invested in the latest
+                  technologies and methodologies to stay at the forefront of the
+                  industry.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="right">
+              <div class="content">
+                <h3>Launching Innovative Solutions</h3>
+                <p>
+                  Developed cutting-edge mobile apps that leveraged emerging
+                  technologies, such as AI and blockchain, to deliver
+                  transformative results for our clients.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="left">
+              <div class="content">
+                <h3>Celebrating Our Growth</h3>
+                <p>
+                  Marked our "10"-year anniversary as a leading creative agency,
+                  proudly reflecting on our journey of innovation,
+                  collaboration, and delivering exceptional results for our
+                  clients.
+                </p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <div class="features">
+        <h2 class="title">Our Features</h2>
+        <div class="container">
+          <div class="feat-box">
+            <img src="imgs/Icon_01.png" alt="" />
+            <h4>Development</h4>
+            <p>
+              We are professional in full-stack app development, leveraging the
+              latest technologies and frameworks to deliver robust, scalable
+              solutions.
+            </p>
+          </div>
+          <div class="feat-box">
+            <img src="imgs/Icon_02.png" alt="" />
+            <h4>Design</h4>
+            <p>
+              Our team of award-winning designers create visually stunning and
+              user-friendly interfaces that enhance the overall app experience.
+            </p>
+          </div>
+          <div class="feat-box">
+            <img src="imgs/Icon_03.png" alt="" />
+            <h4>Strategy</h4>
+            <p>
+              We take a strategic approach to app development, working closely
+              with clients to understand their goals and develop a roadmap for
+              success.
+            </p>
+          </div>
+          <div class="feat-box">
+            <img src="imgs/Icon_04.png" alt="" />
+            <h4>Testing</h4>
+            <p>
+              Rigorous quality assurance and testing processes ensure our apps
+              are bug-free, secure, and perform optimally across different
+              devices and platforms.
+            </p>
+          </div>
+          <div class="feat-box">
+            <img src="imgs/Icon_05.png" alt="" />
+            <h4>Integration</h4>
+            <p>
+              We seamlessly integrate our apps with existing systems, APIs, and
+              third-party services to create a cohesive and connected user
+              experience.
+            </p>
+          </div>
+          <div class="feat-box">
+            <img src="imgs/Icon_06.png" alt="" />
+            <h4>Maintenance</h4>
+            <p>
+              Our support doesn't end at launch - we provide ongoing maintenance
+              and updates to keep your app running smoothly and up-to-date.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="contact" class="contact">
+        <div class="overlay"></div>
+        <div class="container">
+          <h2 class="title">Contact Us</h2>
+          <form action="">
+            <div class="left">
+              <input type="text" placeholder="Your Name" name="username" />
+              <input type="number" placeholder="Your Phone" name="phone" />
+              <input type="email" placeholder="Your Email" name="email" />
+              <input type="text" placeholder="Subject" name="subject" />
+            </div>
+            <div class="right">
+              <textarea name="message" placeholder="Your Message"></textarea>
+              <input type="submit" value="Send" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+        Created With Love by Abderraouf
       </div>
     </div>
     <script src="js/master.js"></script>
