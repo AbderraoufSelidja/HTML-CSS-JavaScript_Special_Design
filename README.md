@@ -18,6 +18,8 @@ You can see a live demo of the application here:
 # https://abderraoufselidja.github.io/HTML-CSS-JavaScript_Special_Design/
 
 ![Demo Screenshot](./imgs/Screenshot1.png)
+![Demo Screenshot](./imgs/Screenshot8.png)
+![Demo Screenshot](./imgs/Screenshot9.png)
 ![Demo Screenshot](./imgs/Screenshot2.png)
 ![Demo Screenshot](./imgs/Screenshot3.png)
 ![Demo Screenshot](./imgs/Screenshot4.png)
